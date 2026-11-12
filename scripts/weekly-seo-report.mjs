@@ -43,7 +43,7 @@ const endDateStr = formatDate(today);
 const WEBHOOK_URL = process.env.REPORT_WEBHOOK_URL || '';
 const LINE_CHANNEL_ACCESS_TOKEN = process.env.LINE_CHANNEL_ACCESS_TOKEN || '';
 const LINE_USER_ID = process.env.LINE_USER_ID || '';
-const SITE_URL = process.env.GSC_SITE_URL || 'https://takkey55.github.io/prompt-hub/';
+const SITE_URL = process.env.GSC_SITE_URL || 'https://prompt-hub-lab.github.io/prompt-hub/';
 const GA4_PROPERTY_ID = process.env.GA4_PROPERTY_ID || '';
 const GOOGLE_CREDENTIALS_JSON = process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON || '';
 
@@ -245,7 +245,7 @@ async function sendNotification(summaryText) {
         payload = {
           content: summaryText,
           username: 'PromptHub Executive Bot',
-          avatar_url: 'https://takkey55.github.io/prompt-hub/favicon.svg',
+          avatar_url: 'https://prompt-hub-lab.github.io/prompt-hub/favicon.svg',
         };
       }
 

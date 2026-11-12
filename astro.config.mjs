@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://takkey55.github.io',
+  site: 'https://prompt-hub-lab.github.io',
   base: '/prompt-hub',
   integrations: [
     tailwind(),
