@@ -153,27 +153,126 @@ const categoryColorMap: Record<string, string> = {
       })}
     </div>
 
+    <!-- Load More Button -->
+    <div class="mt-10 text-center" id="load-more-wrapper">
+      <button
+        id="load-more-btn"
+        type="button"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-brand-500/80 hover:bg-slate-800 text-slate-200 hover:text-white font-medium text-sm transition-all duration-200 shadow-lg shadow-black/20 hover:shadow-brand-500/10 cursor-pointer"
+      >
+        <span id="load-more-text">プロンプトをもっと見る（+9件）</span>
+        <ArrowRight class="w-4 h-4 text-brand-400 transition-transform group-hover:translate-x-0.5" />
+      </button>
+    </div>
+
     <!-- Empty state (hidden by default) -->
     <div id="no-results-msg" class="hidden text-center py-16 text-slate-400 space-y-2">
       <p class="text-base font-semibold">該当するプロンプトは見つかりませんでした。</p>
       <p class="text-xs">他のカテゴリを選択してください。</p>
     </div>
   </section>
+
+  <!-- Free Experience Offer Banner (Subtle / Non-salesy) -->
+  <section class="mt-16 sm:mt-24">
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900/90 to-brand-950/40 border border-slate-800/80 p-8 sm:p-10 shadow-2xl">
+      <!-- Glow ambient background -->
+      <div class="absolute -right-20 -top-20 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div class="space-y-3 max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse"></span>
+            無料プレゼント配布中
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
+            実務プロンプト完全版データベース（Notion）＆<br class="hidden sm:inline" />自動化スターターキット無料配布中
+          </h2>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            サイト掲載中の全プロンプトをワンクリック複製できるNotionマスターデータベースと、Claude Code・Cursorの自動化設定ファイルを無料プレゼントしています。簡単な1分アンケートにご回答いただくと、完了画面およびメールにて即座にお届けします。
+          </p>
+        </div>
+
+        <div class="flex-shrink-0 w-full sm:w-auto">
+          <a
+            href={`${import.meta.env.BASE_URL}/survey/`}
+            class="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-500 to-indigo-600 hover:from-brand-400 hover:to-indigo-500 text-white font-semibold text-sm shadow-xl shadow-brand-500/20 hover:shadow-brand-500/30 transition-all duration-200 transform hover:-translate-y-0.5"
+          >
+            <span>特典を無料で受け取る</span>
+            <ArrowRight class="w-4 h-4" />
+          </a>
+          <p class="text-[11px] text-slate-500 text-center sm:text-right mt-2">
+            ※ 1分で完了・迷惑メールの送信はありません
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <script>
-  function setupCategoryFilter() {
+  function setupPromptCardsPagination() {
     const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-category-filter]');
-    const cards = document.querySelectorAll<HTMLElement>('.prompt-card');
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('.prompt-card'));
     const noResultsMsg = document.getElementById('no-results-msg');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const loadMoreWrapper = document.getElementById('load-more-wrapper');
+    const loadMoreText = document.getElementById('load-more-text');
 
-    if (!filterButtons.length || !cards.length) return;
+    if (!cards.length) return;
 
+    const PAGE_SIZE = 9;
+    let currentLimit = PAGE_SIZE;
+    let currentCategory = 'すべて';
+
+    function updateCardVisibility() {
+      // 1. Filter cards by selected category
+      const matchedCards = cards.filter((card) => {
+        const cat = card.getAttribute('data-category');
+        return currentCategory === 'すべて' || cat === currentCategory;
+      });
+
+      // 2. Hide all cards initially
+      cards.forEach((card) => {
+        card.classList.add('hidden');
+      });
+
+      // 3. Show only matched cards up to currentLimit
+      matchedCards.slice(0, currentLimit).forEach((card) => {
+        card.classList.remove('hidden');
+      });
+
+      // 4. Update empty state
+      if (noResultsMsg) {
+        if (matchedCards.length === 0) {
+          noResultsMsg.classList.remove('hidden');
+        } else {
+          noResultsMsg.classList.add('hidden');
+        }
+      }
+
+      // 5. Update Load More button
+      if (loadMoreWrapper && loadMoreBtn) {
+        const remaining = matchedCards.length - currentLimit;
+        if (remaining > 0) {
+          loadMoreWrapper.classList.remove('hidden');
+          const nextCount = Math.min(PAGE_SIZE, remaining);
+          if (loadMoreText) {
+            loadMoreText.textContent = `プロンプトをもっと見る（+${nextCount}件 / 残り${remaining}件）`;
+          }
+        } else {
+          loadMoreWrapper.classList.add('hidden');
+        }
+      }
+    }
+
+    // Category button click handlers
     filterButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        const selected = btn.getAttribute('data-category-filter') || 'すべて';
+        currentCategory = btn.getAttribute('data-category-filter') || 'すべて';
+        currentLimit = PAGE_SIZE; // Reset limit on category switch
 
-        // Update button states
+        // Update button active styling
         filterButtons.forEach((b) => {
           b.classList.remove('bg-brand-500', 'text-white', 'shadow-md', 'shadow-brand-500/20', 'active');
           b.classList.add('bg-slate-900', 'text-slate-300', 'border', 'border-slate-800');
@@ -181,29 +280,22 @@ const categoryColorMap: Record<string, string> = {
         btn.classList.add('bg-brand-500', 'text-white', 'shadow-md', 'shadow-brand-500/20', 'active');
         btn.classList.remove('bg-slate-900', 'text-slate-300', 'border-slate-800');
 
-        // Filter cards
-        let visibleCount = 0;
-        cards.forEach((card) => {
-          const cardCat = card.getAttribute('data-category');
-          if (selected === 'すべて' || cardCat === selected) {
-            card.classList.remove('hidden');
-            visibleCount++;
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-
-        if (noResultsMsg) {
-          if (visibleCount === 0) {
-            noResultsMsg.classList.remove('hidden');
-          } else {
-            noResultsMsg.classList.add('hidden');
-          }
-        }
+        updateCardVisibility();
       });
     });
+
+    // Load More click handler
+    if (loadMoreBtn) {
+      loadMoreBtn.onclick = () => {
+        currentLimit += PAGE_SIZE;
+        updateCardVisibility();
+      };
+    }
+
+    // Initial render
+    updateCardVisibility();
   }
 
-  setupCategoryFilter();
-  document.addEventListener('astro:page-load', setupCategoryFilter);
+  setupPromptCardsPagination();
+  document.addEventListener('astro:page-load', setupPromptCardsPagination);
 </script>
