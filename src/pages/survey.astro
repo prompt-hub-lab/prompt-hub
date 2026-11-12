@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Gift, CheckCircle, Sparkles, Database, Download, MessageSquare, ArrowRight, ShieldCheck, Mail } from 'lucide-astro';
+
+const autoresponseBody = `この度は「PromptHub」アンケートにご回答いただき誠にありがとうございます！
+ご回答いただいた皆様へ、約束の実務自動化特典をお届けいたします。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【特典1】PromptHub プロンプト完全版データベース（Notion複製用リンク）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+以下のリンクを開き、画面右上の「複製（Duplicate）」をクリックすると、
+あなたのNotionワークスペースへ一括でインポートできます。
+毎週月曜日に最新プロンプトが自動同期されます。
+
+👉 https://dawn-texture-9d3.notion.site/PromptHub-416566ce1972801a859acc9b62bb183e?source=copy_link
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【特典2】Claude Code & Cursor 実務自動化スターターキット（ZIP）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+実務プロジェクトでそのまま使える設定ファイル一式（.cursorrules / CLAUDE.md / シェルエイリアス集）です。
+以下のリンクよりワンクリックでダウンロードいただけます。
+
+👉 https://prompt-hub-lab.github.io/prompt-hub/prompthub-starter-kit.zip
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【特典3】公式LINEサポート窓口（個別相談＆先行アップデート）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+プロンプトのカスタマイズ相談や新着ツールの速報は、以下の公式LINEにて随時配信中！
+
+👉 https://line.me/R/ti/p/@your-line-id
+
+今後ともPromptHubをよろしくお願いいたします。`;
+---
+
+<Layout
+  title="アンケート特典プレゼント | PromptHub"
+  description="アンケートにご回答いただいた方全員に、Notionプロンプト完全版データベースとClaude Code/Cursor自動化スターターキットを即時プレゼント！"
+>
+  <div class="max-w-2xl mx-auto py-8">
+    <!-- Header banner -->
+    <div class="text-center space-y-4 mb-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-300 border border-amber-500/30 shadow-sm animate-pulse">
+        <Gift class="w-4 h-4 text-amber-400" />
+        <span>回答者限定・全員無料プレゼント</span>
+      </div>
+
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-snug">
+        実務特化アンケートご協力で<br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-sky-200 to-indigo-300">
+          豪華3大特典を即時お届け！
+        </span>
+      </h1>
+
+      <p class="text-sm text-slate-300 leading-relaxed max-w-lg mx-auto">
+        回答時間はたった1分。送信完了と同時に、ご入力いただいたメールアドレス宛にNotionデータベース複製リンクと自動化設定ファイルを即座にお届けします。
+      </p>
+    </div>
+
+    <!-- 3 Great Perks Card -->
+    <div class="mb-8 p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3">
+      <div class="text-xs font-semibold uppercase tracking-wider text-brand-400 flex items-center gap-1.5">
+        <Sparkles class="w-3.5 h-3.5 text-brand-400" />
+        <span>お届けする3大プレゼント内容</span>
+      </div>
+      <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+        <li class="flex items-start gap-2">
+          <CheckCircle class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+          <span><strong>Notionプロンプト完全版データベース</strong>（複製権限付き・毎週自動追加）</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <CheckCircle class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+          <span><strong>Claude Code / Cursor 自動化スターターキット（ZIP）</strong>（CLAUDE.md同梱）</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <CheckCircle class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+          <span><strong>公式LINE限定サポート＆最新アップデート通知</strong></span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Form Container -->
+    <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+      <!-- Glow decoration -->
+      <div class="pointer-events-none absolute -top-24 -right-24 w-60 h-60 rounded-full bg-brand-500/10 blur-3xl"></div>
+
+      <!-- FormSubmit zero-auth form backend -->
+      <form
+        action="https://formsubmit.co/ryu1.kan.02@gmail.com"
+        method="POST"
+        class="space-y-6 relative z-10"
+      >
+        <!-- FormSubmit System Configurations -->
+        <input type="hidden" name="_subject" value="【PromptHub】新規アンケート回答を受信しました！" />
+        <input type="hidden" name="_autoresponse" value={autoresponseBody} />
+        <input type="hidden" name="_next" value="https://prompt-hub-lab.github.io/prompt-hub/survey-thanks/" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" style="display:none" />
+
+        <!-- Field 1: Name -->
+        <div class="space-y-2">
+          <label for="name" class="block text-sm font-bold text-slate-200">
+            お名前（ニックネーム可） <span class="text-rose-400">*</span>
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="例: たっきー"
+            class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors text-sm"
+          />
+        </div>
+
+        <!-- Field 2: Email -->
+        <div class="space-y-2">
+          <label for="email" class="block text-sm font-bold text-slate-200">
+            特典お届け用メールアドレス <span class="text-rose-400">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="例: your-email@example.com"
+            class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors text-sm"
+          />
+          <p class="text-[11px] text-slate-400">※ご入力のアドレス宛に、特典ダウンロードリンクが即座に自動送信されます。</p>
+        </div>
+
+        <!-- Field 3: Occupation -->
+        <div class="space-y-2">
+          <label for="occupation" class="block text-sm font-bold text-slate-200">
+            ご職業・職種 <span class="text-rose-400">*</span>
+          </label>
+          <select
+            id="occupation"
+            name="occupation"
+            required
+            class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors text-sm"
+          >
+            <option value="" disabled selected>選択してください</option>
+            <option value="Web制作（デザイナー / コーダー / エンジニア）">Web制作（デザイナー / コーダー / エンジニア）</option>
+            <option value="ディレクター / PM / 制作進行">ディレクター / PM / 制作進行</option>
+            <option value="マーケター / 広告運用者">マーケター / 広告運用者</option>
+            <option value="SNS運用者 / インフルエンサー">SNS運用者 / インフルエンサー</option>
+            <option value="企業の社内Web・DX担当者">企業の社内Web・DX担当者</option>
+            <option value="フリーランス / 副業挑戦中">フリーランス / 副業挑戦中</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+
+        <!-- Field 4: Challenge -->
+        <div class="space-y-2">
+          <label for="challenge" class="block text-sm font-bold text-slate-200">
+            AI自動化で最も解決したい課題・悩み <span class="text-rose-400">*</span>
+          </label>
+          <textarea
+            id="challenge"
+            name="challenge"
+            required
+            rows="3"
+            placeholder="例: 記事やLPの構成案リサーチに何時間もかかってしまう、Claude Codeでの開発手順をもっと効率化したい、等"
+            class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors text-sm"
+          ></textarea>
+        </div>
+
+        <!-- Privacy note -->
+        <div class="flex items-center gap-2 text-[11px] text-slate-400 pt-2">
+          <ShieldCheck class="w-4 h-4 text-emerald-400 flex-shrink-0" />
+          <span>ご入力いただいた個人情報は特典送付および品質改善のみに使用し、第三者への提供は一切行いません。</span>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-base font-bold text-slate-950 bg-gradient-to-r from-brand-300 via-sky-200 to-indigo-200 hover:from-white hover:to-brand-100 shadow-xl shadow-brand-500/25 transition-all duration-200 hover:scale-[1.01] active:scale-95 cursor-pointer"
+        >
+          <Gift class="w-5 h-5 text-slate-900" />
+          <span>アンケートを送信して3大特典を受け取る</span>
+          <ArrowRight class="w-5 h-5 text-slate-900" />
+        </button>
+      </form>
+    </div>
+  </div>
+</Layout>

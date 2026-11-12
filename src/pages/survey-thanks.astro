@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { CheckCircle2, Database, Download, MessageSquare, ArrowRight, Sparkles } from 'lucide-astro';
+---
+
+<Layout
+  title="アンケート送信完了 | PromptHub"
+  description="アンケートのご回答ありがとうございました。特典をご確認ください。"
+>
+  <div class="max-w-xl mx-auto py-12 text-center space-y-8">
+    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-lg shadow-emerald-500/10 mx-auto">
+      <CheckCircle2 class="w-8 h-8" />
+    </div>
+
+    <div class="space-y-3">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+        アンケートのご回答<br class="sm:hidden" />ありがとうございました！
+      </h1>
+      <p class="text-sm text-slate-300 leading-relaxed max-w-md mx-auto">
+        ご入力いただいたメールアドレス宛に、特典のご案内メールを自動送信いたしました。<br />
+        この画面からも今すぐ特典をご利用いただけます！
+      </p>
+    </div>
+
+    <!-- Perks Card Container -->
+    <div class="space-y-4 text-left">
+      <!-- Perk 1 -->
+      <a
+        href="https://dawn-texture-9d3.notion.site/PromptHub-416566ce1972801a859acc9b62bb183e?source=copy_link"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group flex items-center justify-between p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-brand-500/50 transition-all hover:scale-[1.01]"
+      >
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-400 border border-brand-500/20 flex items-center justify-center flex-shrink-0">
+            <Database class="w-5 h-5" />
+          </div>
+          <div>
+            <div class="text-xs text-brand-400 font-semibold">特典 1</div>
+            <div class="text-sm font-bold text-white group-hover:text-brand-300 transition-colors">
+              Notionプロンプト完全版データベース（複製リンク）
+            </div>
+          </div>
+        </div>
+        <ArrowRight class="w-4 h-4 text-slate-400 group-hover:text-white group-hover:translate-x-1 transition-all" />
+      </a>
+
+      <!-- Perk 2 -->
+      <a
+        href="https://prompt-hub-lab.github.io/prompt-hub/prompthub-starter-kit.zip"
+        class="group flex items-center justify-between p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-brand-500/50 transition-all hover:scale-[1.01]"
+      >
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center flex-shrink-0">
+            <Download class="w-5 h-5" />
+          </div>
+          <div>
+            <div class="text-xs text-indigo-400 font-semibold">特典 2</div>
+            <div class="text-sm font-bold text-white group-hover:text-indigo-300 transition-colors">
+              Claude Code / Cursor 自動化スターターキット（ZIP）
+            </div>
+          </div>
+        </div>
+        <ArrowRight class="w-4 h-4 text-slate-400 group-hover:text-white group-hover:translate-x-1 transition-all" />
+      </a>
+    </div>
+
+    <!-- Back to Top button -->
+    <div class="pt-4">
+      <a
+        href={import.meta.env.BASE_URL}
+        class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors"
+      >
+        <span>← メディアトップページへ戻る</span>
+      </a>
+    </div>
+  </div>
+</Layout>

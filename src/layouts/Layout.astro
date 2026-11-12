@@ -101,7 +101,7 @@ const GA4_MEASUREMENT_ID = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID || "";
           </div>
         </a>
 
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-3 sm:gap-4">
           <a
             href={import.meta.env.BASE_URL}
             class="text-sm font-medium text-slate-300 hover:text-white transition-colors"
@@ -109,13 +109,19 @@ const GA4_MEASUREMENT_ID = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID || "";
             プロンプト一覧
           </a>
           <a
-            href="https://note.com"
+            href={`${import.meta.env.BASE_URL}/survey/`}
+            class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-lg bg-amber-500/10 text-amber-300 border border-amber-500/30 hover:bg-amber-500/20 transition-all hover:scale-105"
+          >
+            <Sparkles class="w-3.5 h-3.5 text-amber-400" />
+            <span>特典プレゼント</span>
+          </a>
+          <a
+            href="https://note.com/prompt_hub_official"
             target="_blank"
             rel="noopener noreferrer"
             data-analytics="header-note"
             class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold px-3.5 py-1.5 rounded-lg bg-slate-800 text-slate-200 hover:bg-slate-700 border border-slate-700 transition-all hover:scale-105"
           >
-            <Sparkles class="w-3.5 h-3.5 text-amber-400" />
             <span>完全自動化note</span>
           </a>
         </div>
