@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://prompt-hub-lab.github.io/prompt-hub/sitemap-index.xml
+Sitemap: https://prompt-hub-lab.github.io/prompt-hub/sitemap.xml
