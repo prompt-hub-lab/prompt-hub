@@ -31,6 +31,13 @@ jobs:
       - name: Run prompt generation script
         run: node scripts/auto-generate-prompts.mjs
 
+      - name: Sync Prompts to Notion Database
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: |
+          node scripts/sync-to-notion.mjs || echo "⚠️ Notion同期でエラーが発生しましたが、デプロイ処理を続行します。"
+
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
