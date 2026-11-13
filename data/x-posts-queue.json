@@ -2,8 +2,9 @@
   {
     "id": 1,
     "theme": "Claude Code自動化",
-    "status": "pending",
-    "text": "Claude CodeやCursorを「ただのチャット」で使ってませんか？\n\n実はプロジェクトルートに適切な『CLAUDE.md』を1枚置くだけで、\n・コミット規約の自動遵守\n・TypeScriptの厳格型チェック\n・ワンライナーでの単体テスト量産\nが完全自律で回り始めます。\n\n弊ラボで実際に使っている「実務特化CLAUDE.md定義」を無料公開中。\nターミナルの開発速度を10倍にしたい方はこちら👇\nhttps://prompt-hub-lab.github.io/prompt-hub/prompt/claude-code-git-commit-helper/"
+    "status": "simulated",
+    "text": "Claude CodeやCursorを「ただのチャット」で使ってませんか？\n\n実はプロジェクトルートに適切な『CLAUDE.md』を1枚置くだけで、\n・コミット規約の自動遵守\n・TypeScriptの厳格型チェック\n・ワンライナーでの単体テスト量産\nが完全自律で回り始めます。\n\n弊ラボで実際に使っている「実務特化CLAUDE.md定義」を無料公開中。\nターミナルの開発速度を10倍にしたい方はこちら👇\nhttps://prompt-hub-lab.github.io/prompt-hub/prompt/claude-code-git-commit-helper/",
+    "simulatedAt": "2026-11-13T17:27:25.639Z"
   },
   {
     "id": 2,
