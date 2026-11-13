@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "theme": "Claude Code自動化",
+    "status": "pending",
+    "text": "Claude CodeやCursorを「ただのチャット」で使ってませんか？\n\n実はプロジェクトルートに適切な『CLAUDE.md』を1枚置くだけで、\n・コミット規約の自動遵守\n・TypeScriptの厳格型チェック\n・ワンライナーでの単体テスト量産\nが完全自律で回り始めます。\n\n弊ラボで実際に使っている「実務特化CLAUDE.md定義」を無料公開中。\nターミナルの開発速度を10倍にしたい方はこちら👇\nhttps://prompt-hub-lab.github.io/prompt-hub/prompt/claude-code-git-commit-helper/"
+  },
+  {
+    "id": 2,
+    "theme": "SEO内部リンク最適化",
+    "status": "pending",
+    "text": "SEOで最もコスパ良く検索順位を底上げする方法、知ってますか？\n「新規記事を量産する」のではなく「既存記事の内部リンク設計を見直す」ことです。\n\n親記事（ピラー）と子記事（クラスター）のURLを投げるだけで、\n・離脱を防ぐアンカーテキスト\n・相互リンクの最適な挿入箇所\nを一瞬で弾き出すプロンプトを作りました。\n\n内部リンク精査の2時間が10分で終わります👇\nhttps://prompt-hub-lab.github.io/prompt-hub/prompt/seo-internal-link-optimizer/"
+  },
+  {
+    "id": 3,
+    "theme": "SNS・Xバズフック生成",
+    "status": "pending",
+    "text": "X（Twitter）の伸び悩み、原因の9割は「1行目のフック」にあります。\n\nどれだけ有益なノウハウも、タイムラインをスクロールする親指を止められなければ存在しないのと同じ。\n\n人間の行動心理トリガー（反直感・損失回避・数字の具体化）に基づき、クリック率を最大化する「1行目フック文生成プロンプト」をまとめました。\n\nコピペで使える実戦テンプレはこちら👇\nhttps://prompt-hub-lab.github.io/prompt-hub/prompt/sns-buzz-hook-generator/"
+  },
+  {
+    "id": 4,
+    "theme": "ディレクション防衛術",
+    "status": "pending",
+    "text": "Web制作や受託開発で一番消耗する「ついでにこれもお願いできますか？」の仕様変更。\n\n角を立てずに断り、自然に追加見積・納期調整へ誘導する「防衛プロンプト」を作成しました。\n\n・クライアントとの信頼関係を壊さない\n・追加工数をきっちりマネタイズする\n・即レスできるメール文面を一撃出力\n\nディレクションの胃痛をゼロにするプロンプト👇\nhttps://prompt-hub-lab.github.io/prompt-hub/prompt/scope-creep-refusal-email/"
+  },
+  {
+    "id": 5,
+    "theme": "Notion完全版DB＆特典",
+    "status": "pending",
+    "text": "【まとめ】実務で本当に使えるAIプロンプトは、散らかったメモ帳ではなく「整理されたデータベース」で管理すべきです。\n\n本日公開した50本超の実務プロンプトは、すべてワンクリックであなたのNotionへ複製可能。\n毎週月曜日に最新プロンプトが自動同期されます。\n\n・Notionマスターデータベース\n・Claude Code / Cursorスターターキット\n完全無料で手に入ります👇\nhttps://prompt-hub-lab.github.io/prompt-hub/survey/"
+  }
+]

@@ -1,0 +1,50 @@
+name: X Auto-Publish Engine (Daily / On Demand)
+
+on:
+  schedule:
+    # 毎日 午前11:00 (JST = 午前2:00 UTC) に1投稿
+    - cron: '0 2 * * *'
+    # 毎日 午後19:00 (JST = 午前10:00 UTC) に1投稿
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish-next-tweet:
+    name: Publish Next Queued Post
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Post Next Tweet
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: |
+          node scripts/post-to-x.mjs
+
+      - name: Commit queue updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/x-posts-queue.json
+          if git diff --staged --quiet; then
+            echo "No queue changes to commit."
+          else
+            git commit -m "chore(x-queue): update post status"
+            git push origin main
+          fi
