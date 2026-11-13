@@ -66,19 +66,21 @@ const GA4_MEASUREMENT_ID = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID || "";
       <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
     )}
 
-    <!-- Google Analytics 4 (gtag.js) Placeholder -->
+    <!-- Google Analytics 4 (gtag.js) -->
     {GA4_MEASUREMENT_ID && (
-      <script
-        is:inline
-        type="text/partytown"
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
-      />
-      <script is:inline define:vars={{ GA4_MEASUREMENT_ID }}>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', GA4_MEASUREMENT_ID);
-      </script>
+      <>
+        <script
+          is:inline
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
+        />
+        <script is:inline define:vars={{ GA4_MEASUREMENT_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', GA4_MEASUREMENT_ID);
+        </script>
+      </>
     )}
 
     <!-- Additional head items like JSON-LD schema -->
