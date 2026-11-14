@@ -9,8 +9,9 @@
   {
     "id": 2,
     "theme": "SEO内部リンク最適化",
-    "status": "pending",
-    "text": "SEOで最もコスパ良く検索順位を底上げする方法、知ってますか？\n「新規記事を量産する」のではなく「既存記事の内部リンク設計を見直す」ことです。\n\n親記事（ピラー）と子記事（クラスター）のURLを投げるだけで、\n・離脱を防ぐアンカーテキスト\n・相互リンクの最適な挿入箇所\nを一瞬で弾き出すプロンプトを作りました。\n\n内部リンク精査の2時間が10分で終わります👇\nhttps://prompt-hub-lab.github.io/prompt-hub/prompt/seo-internal-link-optimizer/"
+    "status": "simulated",
+    "text": "SEOで最もコスパ良く検索順位を底上げする方法、知ってますか？\n「新規記事を量産する」のではなく「既存記事の内部リンク設計を見直す」ことです。\n\n親記事（ピラー）と子記事（クラスター）のURLを投げるだけで、\n・離脱を防ぐアンカーテキスト\n・相互リンクの最適な挿入箇所\nを一瞬で弾き出すプロンプトを作りました。\n\n内部リンク精査の2時間が10分で終わります👇\nhttps://prompt-hub-lab.github.io/prompt-hub/prompt/seo-internal-link-optimizer/",
+    "simulatedAt": "2026-11-14T16:18:14.376Z"
   },
   {
     "id": 3,
