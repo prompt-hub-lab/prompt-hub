@@ -2,9 +2,8 @@
   {
     "id": 1,
     "theme": "Claude Code自動化",
-    "status": "simulated",
-    "text": "Claude CodeやCursorを「ただのチャット」で使ってませんか？\n\n実はプロジェクトルートに適切な『CLAUDE.md』を1枚置くだけで、\n・コミット規約の自動遵守\n・TypeScriptの厳格型チェック\n・ワンライナーでの単体テスト量産\nが完全自律で回り始めます。\n\n弊ラボで実際に使っている「実務特化CLAUDE.md定義」を無料公開中。\nターミナルの開発速度を10倍にしたい方はこちら👇\nhttps://prompt-hub-lab.github.io/prompt-hub/prompt/claude-code-git-commit-helper/",
-    "simulatedAt": "2026-11-13T17:27:25.639Z"
+    "status": "pending",
+    "text": "Claude CodeやCursorを「ただのチャット」で使ってませんか？\n\n実はプロジェクトルートに適切な『CLAUDE.md』を1枚置くだけで、\n・コミット規約の自動遵守\n・TypeScriptの厳格型チェック\n・ワンライナーでの単体テスト量産\nが完全自律で回り始めます。\n\n現場で即動く「実務特化CLAUDE.md定義」の解説はこちら👇\nhttps://prompt-hub-lab.github.io/prompt-hub/prompt/claude-code-git-commit-helper/"
   },
   {
     "id": 2,
@@ -26,8 +25,8 @@
   },
   {
     "id": 5,
-    "theme": "Notion完全版DB＆特典",
+    "theme": "完全版NotionDB＆自動化キット",
     "status": "pending",
-    "text": "【まとめ】実務で本当に使えるAIプロンプトは、散らかったメモ帳ではなく「整理されたデータベース」で管理すべきです。\n\n本日公開した50本超の実務プロンプトは、すべてワンクリックであなたのNotionへ複製可能。\n毎週月曜日に最新プロンプトが自動同期されます。\n\n・Notionマスターデータベース\n・Claude Code / Cursorスターターキット\n完全無料で手に入ります👇\nhttps://prompt-hub-lab.github.io/prompt-hub/survey/"
+    "text": "【実務を自動化したい方へ】\n現場で検証済みの実務プロンプト50選（Notion完全同期）とClaude Code/Cursor自動化キットを公式noteで完全公開しました。\n\n単発買い切り（5,980円）のほか、月額980円（初月無料）のメンバーシップで即日すべて全開放されます。\n\n手元の泥臭い手作業を手放したい方はこちら👇\nhttps://prompt-hub-lab.github.io/prompt-hub/"
   }
 ]
