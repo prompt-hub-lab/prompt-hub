@@ -23,8 +23,9 @@
   {
     "id": 4,
     "theme": "ディレクション防衛術",
-    "status": "pending",
-    "text": "Web制作や受託開発で一番消耗する「ついでにこれもお願いできますか？」の仕様変更。\n\n角を立てずに断り、自然に追加見積・納期調整へ誘導する「防衛プロンプト」を作成しました。\n\n・クライアントとの信頼関係を壊さない\n・追加工数をきっちりマネタイズする\n・即レスできるメール文面を一撃出力\n\nディレクションの胃痛をゼロにするプロンプト👇\nhttps://prompt-hub-lab.github.io/prompt-hub/prompt/scope-creep-refusal-email/"
+    "status": "simulated",
+    "text": "Web制作や受託開発で一番消耗する「ついでにこれもお願いできますか？」の仕様変更。\n\n角を立てずに断り、自然に追加見積・納期調整へ誘導する「防衛プロンプト」を作成しました。\n\n・クライアントとの信頼関係を壊さない\n・追加工数をきっちりマネタイズする\n・即レスできるメール文面を一撃出力\n\nディレクションの胃痛をゼロにするプロンプト👇\nhttps://prompt-hub-lab.github.io/prompt-hub/prompt/scope-creep-refusal-email/",
+    "simulatedAt": "2026-11-15T16:44:53.859Z"
   },
   {
     "id": 5,
