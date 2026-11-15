@@ -16,8 +16,9 @@
   {
     "id": 3,
     "theme": "SNS・Xバズフック生成",
-    "status": "pending",
-    "text": "X（Twitter）の伸び悩み、原因の9割は「1行目のフック」にあります。\n\nどれだけ有益なノウハウも、タイムラインをスクロールする親指を止められなければ存在しないのと同じ。\n\n人間の行動心理トリガー（反直感・損失回避・数字の具体化）に基づき、クリック率を最大化する「1行目フック文生成プロンプト」をまとめました。\n\nコピペで使える実戦テンプレはこちら👇\nhttps://prompt-hub-lab.github.io/prompt-hub/prompt/sns-buzz-hook-generator/"
+    "status": "simulated",
+    "text": "X（Twitter）の伸び悩み、原因の9割は「1行目のフック」にあります。\n\nどれだけ有益なノウハウも、タイムラインをスクロールする親指を止められなければ存在しないのと同じ。\n\n人間の行動心理トリガー（反直感・損失回避・数字の具体化）に基づき、クリック率を最大化する「1行目フック文生成プロンプト」をまとめました。\n\nコピペで使える実戦テンプレはこちら👇\nhttps://prompt-hub-lab.github.io/prompt-hub/prompt/sns-buzz-hook-generator/",
+    "simulatedAt": "2026-11-15T08:53:13.262Z"
   },
   {
     "id": 4,
