@@ -66,7 +66,12 @@ const GA4_MEASUREMENT_ID = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID || "";
       <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
     )}
 
-    <!-- Google Tag Manager / GA4 -->
+    <!-- Google Analytics 4 (GA4) & Google Tag Manager -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-21X0QY5Z9S"
+    />
     <script
       is:inline
       async
@@ -76,6 +81,7 @@ const GA4_MEASUREMENT_ID = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID || "";
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('config', 'G-21X0QY5Z9S');
     </script>
 
     <!-- Additional head items like JSON-LD schema -->
