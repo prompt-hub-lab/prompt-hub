@@ -30,7 +30,8 @@
   {
     "id": 5,
     "theme": "完全版NotionDB＆自動化キット",
-    "status": "pending",
-    "text": "【実務を自動化したい方へ】\n現場で検証済みの実務プロンプト50選（Notion完全同期）とClaude Code/Cursor自動化キットを公式noteで完全公開しました。\n\n単発買い切り（5,980円）のほか、月額980円（初月無料）のメンバーシップで即日すべて全開放されます。\n\n手元の泥臭い手作業を手放したい方はこちら👇\nhttps://prompt-hub-lab.github.io/prompt-hub/"
+    "status": "simulated",
+    "text": "【実務を自動化したい方へ】\n現場で検証済みの実務プロンプト50選（Notion完全同期）とClaude Code/Cursor自動化キットを公式noteで完全公開しました。\n\n単発買い切り（5,980円）のほか、月額980円（初月無料）のメンバーシップで即日すべて全開放されます。\n\n手元の泥臭い手作業を手放したい方はこちら👇\nhttps://prompt-hub-lab.github.io/prompt-hub/",
+    "simulatedAt": "2026-11-16T09:05:50.476Z"
   }
 ]
