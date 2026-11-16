@@ -20,19 +20,18 @@ export async function buildNoteArticles() {
 
   const promptFiles = fs.readdirSync(PROMPTS_DIR).filter(f => f.endsWith('.md'));
   
-  // 1. メンバーシップ向け「今週の新着プロンプトまとめ記事」の生成
-  const weeklyArticleTitle = `【今週の更新】実務特化AIプロンプト最新10選＆自動化スターターキット（Notion完全同期版）`;
+  // 1. やまださん流・note内SEO＆結論先出し型「今週の実務プロンプトまとめ記事」の生成
+  // 検索ヒットキーワード：「実務プロンプト」「Claude」「Notion」「業務効率化」を常設
+  const weeklyArticleTitle = `【実務プロンプト集】Claude・ChatGPTで業務効率化するNotionデータベース（今週の10選・毎週更新）`;
   
   let weeklyContent = `# ${weeklyArticleTitle}
 
-PromptHub メンバーシップ会員の皆様へ。
-今週も現場で検証済みの実務特化型AIプロンプト10本をNotionマスターデータベースへ自動追加いたしました！
+**【結論】この記事を開いた瞬間から、コピペであなたの業務時間を今週5時間削減できる実務特化AIプロンプト10選をお渡しします。**
 
-ワンクリックで最新データを自分のNotionへ取り込み可能です。
-また、Claude Code / Cursorの自動化設定ファイル（CLAUDE.md / .cursorrules）も最新仕様へアップデートされています。
+ネット上の抽象的なプロンプトで満足できなかった実務担当者のために、現場で検証済みの「そのまま使えるテンプレ」と「Claude Code / Cursor自律設定ファイル」をNotionマスターデータベースへ追加同期いたしました。
 
 ━━━━━━━━━━━━━━━━━━━━
-■ 今週追加された実務プロンプト一覧
+■ 今週追加された実務プロンプト10選（現場検証済み）
 ━━━━━━━━━━━━━━━━━━━━
 `;
 
@@ -46,19 +45,25 @@ PromptHub メンバーシップ会員の皆様へ。
     const cat = catMatch ? catMatch[1] : '実務効率化';
     const desc = descMatch ? descMatch[1] : '';
 
-    weeklyContent += `\n### ${idx + 1}. 【${cat}】${title}\n${desc}\n`;
+    weeklyContent += `\n### ${idx + 1}. 【${cat}】${title}\n**効果**: ${desc}\n`;
   });
 
   weeklyContent += `
 ━━━━━━━━━━━━━━━━━━━━
-■ 会員限定・NotionマスターDB複製リンク
+■ 無料で読めるのはここまでです（メンバーシップで全開放）
 ━━━━━━━━━━━━━━━━━━━━
-https://dawn-texture-9d3.notion.site/PromptHub-416566ce1972801a859acc9b62bb183e?source=copy_link
+上記を含む全60本超のプロンプトをワンクリック複製できる「Notionマスターデータベース」と、Claude Code・Cursor用スターターキット（ZIP）は、以下のメンバーシップ（月額980円 / 初月無料）または単発買い切り（5,980円）にて今すぐご利用いただけます。
+
+👉 **[PromptHub メンバーシップに参加して完全版を受け取る（初月無料）](https://note.com/prompthub_ai/membership)**
+
+👉 **[渾身の単発買い切り版（5,980円）はこちら](https://note.com/prompthub_ai/n/nc6b607bb25be)**
 
 ━━━━━━━━━━━━━━━━━━━━
-■ Claude Code / Cursor スターターキットZIP
+▼ メンバー特典：NotionマスターDB＆スターターキット引き換えゲート
 ━━━━━━━━━━━━━━━━━━━━
-https://prompt-hub-lab.github.io/prompt-hub/prompthub-starter-kit.zip
+すでにメンバーシップまたは単発noteをご購入いただいた方は、以下の専用フォームよりアンケートにご回答ください。完了と同時に自動返信で複製リンクをお届けします。
+
+👉 **[特典引き換えフォーム（購入者・メンバー専用）](https://prompt-hub-lab.github.io/prompt-hub/survey/)**
 `;
 
   const weeklyOutPath = path.join(DIST_DIR, 'weekly-membership-article.md');

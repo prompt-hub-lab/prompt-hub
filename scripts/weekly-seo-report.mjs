@@ -43,6 +43,8 @@ const endDateStr = formatDate(today);
 const WEBHOOK_URL = process.env.REPORT_WEBHOOK_URL || '';
 const LINE_CHANNEL_ACCESS_TOKEN = process.env.LINE_CHANNEL_ACCESS_TOKEN || '';
 const LINE_USER_ID = process.env.LINE_USER_ID || '';
+const CHATWORK_API_TOKEN = process.env.CHATWORK_API_TOKEN || '516c72ca36b5a30d053a449f69b2b4b6';
+const CHATWORK_ROOM_ID = process.env.CHATWORK_ROOM_ID || '450930029';
 const SITE_URL = process.env.GSC_SITE_URL || 'https://prompt-hub-lab.github.io/prompt-hub/';
 const GA4_PROPERTY_ID = process.env.GA4_PROPERTY_ID || '';
 const GOOGLE_CREDENTIALS_JSON = process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON || '';
@@ -232,6 +234,32 @@ async function sendNotification(summaryText) {
       }
     } catch (lineErr) {
       console.error('❌ LINE送信失敗:', lineErr.message);
+    }
+  }
+
+  // Chatwork 送信
+  if (CHATWORK_API_TOKEN && CHATWORK_ROOM_ID) {
+    try {
+      console.log('💬 Chatwork 経由で週次レポートを送信中...');
+      const cwMessage = `[info][title]📈 【PromptHub】週次経営ダッシュボードレポート[/title]${summaryText}[/info]`;
+      const cwRes = await fetch(`https://api.chatwork.com/v2/rooms/${CHATWORK_ROOM_ID}/messages`, {
+        method: 'POST',
+        headers: {
+          'X-ChatWorkToken': CHATWORK_API_TOKEN,
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({ body: cwMessage }).toString(),
+      });
+
+      if (cwRes.ok) {
+        console.log('✅ Chatworkへの週次レポート通知を正常に送信しました！');
+        sent = true;
+      } else {
+        const cwErr = await cwRes.text();
+        console.error(`❌ Chatwork送信エラー: HTTP ${cwRes.status}`, cwErr);
+      }
+    } catch (cwErr) {
+      console.error('❌ Chatwork送信失敗:', cwErr.message);
     }
   }
 
