@@ -67,11 +67,11 @@ function getArticleStats() {
 // 2. Google Search Console データ取得
 async function fetchGoogleSearchConsoleData() {
   if (!GOOGLE_CREDENTIALS_JSON) {
-    console.log('ℹ️ GOOGLE_APPLICATION_CREDENTIALS_JSON 未設定のため、サンプル指標を使用します。');
+    console.log('ℹ️ GOOGLE_APPLICATION_CREDENTIALS_JSON 未設定');
     return {
-      clicks: 42,
-      impressions: 1280,
-      topKeywords: ['Astro Tailwind プロンプト', 'Claude Code 自動化', 'LP コピーライティング'],
+      clicks: 0,
+      impressions: 0,
+      topKeywords: ['GSC API未連携（現在計測準備中）'],
       isLive: false,
     };
   }
@@ -115,7 +115,7 @@ async function fetchGoogleSearchConsoleData() {
       isLive: true,
     };
   } catch (err) {
-    console.warn('⚠️ GSC APIエラー (フォールバックデータを使用):', err.message);
+    console.warn('⚠️ GSC APIエラー:', err.message);
     return {
       clicks: 0,
       impressions: 0,
@@ -128,9 +128,9 @@ async function fetchGoogleSearchConsoleData() {
 // 3. GA4 note遷移データ取得
 async function fetchGA4NoteClicks() {
   if (!GOOGLE_CREDENTIALS_JSON || !GA4_PROPERTY_ID) {
-    console.log('ℹ️ GA4_PROPERTY_ID 未設定のため、サンプル指標を使用します。');
+    console.log('ℹ️ GA4_PROPERTY_ID 未設定');
     return {
-      noteClicks: 18,
+      noteClicks: 0,
       isLive: false,
     };
   }
