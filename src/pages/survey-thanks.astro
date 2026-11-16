@@ -7,6 +7,10 @@ import { CheckCircle2, Database, Download, MessageSquare, ArrowRight, Sparkles }
   title="アンケート送信完了 | PromptHub"
   description="アンケートのご回答ありがとうございました。特典をご確認ください。"
 >
+  <slot name="head" slot="head">
+    <meta name="robots" content="noindex, nofollow" />
+  </slot>
+
   <div class="max-w-xl mx-auto py-12 text-center space-y-8">
     <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-lg shadow-emerald-500/10 mx-auto">
       <CheckCircle2 class="w-8 h-8" />

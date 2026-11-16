@@ -36,6 +36,10 @@ const autoresponseBody = `この度は「PromptHub」アンケートにご回答
   title="購入者・メンバー限定 特典引き換えフォーム | PromptHub"
   description="PromptHub有料note購入者およびメンバーシップ会員限定。Notionプロンプト完全版データベースとClaude Code/Cursor自動化スターターキットの引き換えフォームです。"
 >
+  <slot name="head" slot="head">
+    <meta name="robots" content="noindex, nofollow" />
+  </slot>
+
   <div class="max-w-2xl mx-auto py-8">
     <!-- Header banner -->
     <div class="text-center space-y-4 mb-10">
